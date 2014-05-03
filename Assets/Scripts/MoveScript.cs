@@ -10,6 +10,7 @@ public class MoveScript : MonoBehaviour
 	/// <summary>
 	/// Object speed
 	/// </summary>
+	private GameController gameController; //this will allow access to the game controller
 	public Vector2 speed = new Vector2(10, 10);
 
 	//public float speedY = 0;
@@ -23,15 +24,21 @@ public class MoveScript : MonoBehaviour
 	void Start()
 	{
 		//speed = new Vector2(10, speedY);
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
 	}
 	
 	void Update()
 	{
 
 		// 2 - Movement
-		movement = new Vector2(
+		if (!gameController.planningStage) {
+			movement = new Vector2 (
 			speed.x * direction.x,
 			speed.y * direction.y);
+		}
 
 	}
 	

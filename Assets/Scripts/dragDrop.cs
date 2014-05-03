@@ -16,16 +16,22 @@ class dragDrop : MonoBehaviour
 	
 	private float distance;
 	
+	private GameController gameController; //this will allow access to the game controller
 	
-	
-	
+	void Start()
+	{
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+	}
 	
 	void OnMouseEnter()
-
 	{
-		originalColor = gameObject.transform.parent.renderer.material.GetColor ("_Color");
-		gameObject.transform.parent.renderer.material.color = mouseOverColor;
-		
+		if (gameController.canMoveArrows) {
+			originalColor = gameObject.transform.parent.renderer.material.GetColor ("_Color");
+			gameObject.transform.parent.renderer.material.color = mouseOverColor;
+		}
 	}
 	
 	
@@ -33,9 +39,9 @@ class dragDrop : MonoBehaviour
 	void OnMouseExit()
 		
 	{
-		
-		gameObject.transform.parent.renderer.material.color = originalColor;
-		
+		if (gameController.canMoveArrows) {
+			gameObject.transform.parent.renderer.material.color = originalColor;
+		}
 	}
 	
 	
@@ -43,11 +49,10 @@ class dragDrop : MonoBehaviour
 	void OnMouseDown()
 		
 	{
-		
-		distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-		
-		dragging = true;
-		
+		if (gameController.canMoveArrows) {
+			distance = Vector3.Distance (transform.position, Camera.main.transform.position);
+			dragging = true;
+		}
 	}
 	
 	
@@ -55,9 +60,9 @@ class dragDrop : MonoBehaviour
 	void OnMouseUp()
 		
 	{
-		
-		dragging = false;
-		
+		if (gameController.canMoveArrows) {
+			dragging = false;
+		}
 	}
 	
 	
@@ -66,7 +71,7 @@ class dragDrop : MonoBehaviour
 		
 	{
 		
-		if (dragging)
+		if (dragging && gameController.canMoveArrows)
 			
 		{
 			
