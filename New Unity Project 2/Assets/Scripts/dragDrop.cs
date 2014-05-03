@@ -7,7 +7,7 @@ using UnityEngine;
 class dragDrop : MonoBehaviour
 	
 {
-	
+	//
 	private Color mouseOverColor = Color.blue;
 	
 	private Color originalColor ;
@@ -21,10 +21,10 @@ class dragDrop : MonoBehaviour
 	
 	
 	void OnMouseEnter()
-		
+
 	{
-		originalColor = gameObject.renderer.material.GetColor ("_Color");
-		renderer.material.color = mouseOverColor;
+		originalColor = gameObject.transform.parent.renderer.material.GetColor ("_Color");
+		gameObject.transform.parent.renderer.material.color = mouseOverColor;
 		
 	}
 	
@@ -34,12 +34,12 @@ class dragDrop : MonoBehaviour
 		
 	{
 		
-		renderer.material.color = originalColor;
+		gameObject.transform.parent.renderer.material.color = originalColor;
 		
 	}
 	
 	
-	
+
 	void OnMouseDown()
 		
 	{
@@ -74,8 +74,9 @@ class dragDrop : MonoBehaviour
 			
 			Vector3 rayPoint = ray.GetPoint(distance);
 			
+			transform.parent.position = rayPoint;
 			transform.position = rayPoint;
-			
+
 		}
 		
 	}

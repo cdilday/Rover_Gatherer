@@ -26,4 +26,12 @@ public class RobotScript : MonoBehaviour {
 		else if(directionType == 4)
 			mov.direction = new Vector2(1, 0);
 	}
+
+	void OnDestroy()
+	{
+		// Game Over.
+		// Add the script to the parent because the current game
+		// object is likely going to be destroyed immediately.
+		transform.parent.gameObject.AddComponent<gameOverScript>();
+	}
 }

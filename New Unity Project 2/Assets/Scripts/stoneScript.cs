@@ -16,9 +16,11 @@ public class stoneScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision){ 
 	
 		RobotScript rob = collision.gameObject.GetComponent<RobotScript>();
-		SpecialEffectsHelper.Instance.Explosion(transform.position);
-		Destroy (rob.gameObject);
-		//rob.transform.position = new Vector3 (0, 0, 0);
+		if (rob != null) {
+						SpecialEffectsHelper.Instance.Explosion (transform.position);
+						Destroy (rob.gameObject);
+						//rob.transform.position = new Vector3 (0, 0, 0);
+				}
 
 		}
 
