@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.Space) && planningStage) {
-			planningStage = false; 
-			canMoveArrows = false;
+			planningStage = false; //temporally removed for prototype purpose
+			//canMoveArrows = false;
 		}
 	}
 }
