@@ -25,8 +25,7 @@ public class ChangeDirection : MonoBehaviour
 		if (rob != null)
 		{
 			rob.directionType = type;
-
-
+			rob.transform.position = transform.position;
 		}
 	}
 }

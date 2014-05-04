@@ -62,6 +62,11 @@ class dragDrop : MonoBehaviour
 	{
 		if (gameController.canMoveArrows) {
 			dragging = false;
+			Vector3 currentPos = transform.position;
+			//snapping to grid
+			gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) - 0.5f,
+			                                                             Mathf.Round(currentPos.y),
+			                                                             currentPos.z);
 		}
 	}
 	
@@ -71,7 +76,7 @@ class dragDrop : MonoBehaviour
 		
 	{
 		
-		if (dragging && gameController.canMoveArrows)
+		if (dragging)
 			
 		{
 			
