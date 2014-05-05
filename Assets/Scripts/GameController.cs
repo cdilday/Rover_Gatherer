@@ -18,4 +18,10 @@ public class GameController : MonoBehaviour {
 			//canMoveArrows = false;
 		}
 	}
+
+	//this is where the gameover will happen. Anything that causes a game over should call this
+	public void gameOver()
+	{
+
+	}
 }

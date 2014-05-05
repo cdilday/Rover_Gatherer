@@ -8,14 +8,20 @@ public class RobotScript : MonoBehaviour {
 	//type 3: left
 	//type 4: right
 	public int directionType;
+	private GameController gameController;
 
 	// Use this for initialization
 	void Start () {
-	
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (gameController.planningStage)
+			transform.position = new Vector2 (1.5f, 1);
 		MoveScript mov =  GetComponent<MoveScript>();
 		if(directionType == 1)
 			mov.direction = new Vector2(0, 1);

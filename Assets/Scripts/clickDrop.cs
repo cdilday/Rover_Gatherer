@@ -45,5 +45,5 @@ public class clickDrop : MonoBehaviour
 			Screen.showCursor = true;
 		}
 	}
-	
+
 }

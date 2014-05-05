@@ -12,7 +12,7 @@ class dragDrop : MonoBehaviour
 	
 	private Color originalColor ;
 	
-	private bool dragging = false;
+	public bool dragging = false;
 	
 	private float distance;
 	
@@ -64,7 +64,24 @@ class dragDrop : MonoBehaviour
 			dragging = false;
 			Vector3 currentPos = transform.position;
 			//snapping to grid
-			gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) - 0.5f,
+			float temp;
+			if(currentPos.x >=0){
+				if (currentPos.x % 1f < 0.5f){
+					temp = 0.5f;
+				}
+				else{
+					temp = -0.5f;
+				}
+			}
+			else{
+				if (currentPos.x % 1f > -0.5f ){
+					temp = -0.5f;
+				}
+				else{
+					temp = 0.5f;
+				}
+			}
+			gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) + temp,
 			                                                             Mathf.Round(currentPos.y),
 			                                                             currentPos.z);
 		}
