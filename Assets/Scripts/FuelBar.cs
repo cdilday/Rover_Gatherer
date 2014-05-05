@@ -8,6 +8,7 @@ public class FuelBar : MonoBehaviour {
 	public Vector2 size = new Vector2(20,20);
 	public Texture2D emptyTex;
 	public Texture2D fullTex;
+	private bool isGameOver = false;
 
 	private GameController gameController;
 
@@ -35,11 +36,12 @@ public class FuelBar : MonoBehaviour {
 	void Update() {
 		if (barDisplay < 0)
 			barDisplay = 0;
-		if (!gameController.planningStage && barDisplay != 0) {
+		if (!gameController.planningStage && barDisplay != 0 && !gameController.isGameOver) {
 			barDisplay -= decay;
 		}
-		if (barDisplay == 0) {
+		if (barDisplay == 0 && !isGameOver) {
 			gameController.gameOver ();
+			isGameOver = true;
 		}
 	}
 }

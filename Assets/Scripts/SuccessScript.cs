@@ -3,7 +3,7 @@
 /// <summary>
 /// Start or quit the game
 /// </summary>
-public class gameOverScript : MonoBehaviour
+public class SuccessScript : MonoBehaviour
 {
 	private GameController gameController;
 	void Start()
@@ -15,7 +15,7 @@ public class gameOverScript : MonoBehaviour
 	}
 	void OnGUI()
 	{
-
+		
 		const int buttonWidth = 120;
 		const int buttonHeight = 60;
 		
@@ -35,7 +35,7 @@ public class gameOverScript : MonoBehaviour
 			// Reload the level
 			//if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
 			//ScoreController.score = 0;
-		//	PlayerPrefs.SetInt("level", 1);
+			//	PlayerPrefs.SetInt("level", 1);
 			Application.LoadLevel("s1");
 		}
 		
@@ -55,7 +55,7 @@ public class gameOverScript : MonoBehaviour
 			// Reload the level
 			////if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
 			//ScoreController.score = 0;
-		//	PlayerPrefs.SetInt("level", 1);
+			//	PlayerPrefs.SetInt("level", 1);
 			Application.LoadLevel("s1");
 		}
 	}

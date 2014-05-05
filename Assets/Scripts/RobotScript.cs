@@ -21,7 +21,7 @@ public class RobotScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (gameController.planningStage)
-			transform.position = new Vector2 (1.5f, 1);
+			transform.position = new Vector2 (1.5f, 2);
 		MoveScript mov =  GetComponent<MoveScript>();
 		if(directionType == 1)
 			mov.direction = new Vector2(0, 1);
@@ -36,8 +36,8 @@ public class RobotScript : MonoBehaviour {
 	void OnDestroy()
 	{
 		// Game Over.
-		// Add the script to the parent because the current game
-		// object is likely going to be destroyed immediately.
-		transform.parent.gameObject.AddComponent<gameOverScript>();
+		// Call Game Controller's game Over function
+		// Robot will already be immediately destroyed
+		gameController.gameOver ();
 	}
 }

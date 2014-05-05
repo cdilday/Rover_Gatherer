@@ -4,9 +4,13 @@ using System.Collections;
 public class mineralScript : MonoBehaviour {
 
 	public int isPickUp = 0;
+	private GameController gameController;
 	// Use this for initialization
 	void Start () {
-	
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -22,6 +26,7 @@ public class mineralScript : MonoBehaviour {
 			this.transform.position = mine.transform.position;
 			mine.isIncrease = 1;
 			isPickUp = 0;
+			gameController.mineralsIn += 1;
 		}
 	}
 	

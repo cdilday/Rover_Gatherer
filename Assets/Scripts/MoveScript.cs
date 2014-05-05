@@ -34,11 +34,13 @@ public class MoveScript : MonoBehaviour
 	{
 
 		// 2 - Movement
-		if (!gameController.planningStage) {
+		if (!gameController.planningStage && !gameController.isGameOver) {
 			movement = new Vector2 (
 			speed.x * direction.x,
 			speed.y * direction.y);
 		}
+		else
+			movement = new Vector2 ( 0, 0);
 
 	}
 	
