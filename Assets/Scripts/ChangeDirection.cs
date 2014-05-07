@@ -31,6 +31,7 @@ public class ChangeDirection : MonoBehaviour
 		if (rob != null && !gameController.planningStage && !arrowCooldown)
 		{
 			StartCoroutine(snapToArrow(rob));
+			//Destroy(gameObject);
 		}
 	}
 
@@ -41,7 +42,9 @@ public class ChangeDirection : MonoBehaviour
 		yield return new WaitForSeconds (0.83f);
 		rob.directionType = type;
 		rob.transform.position = transform.position;
+		Destroy (gameObject);
 		yield return new WaitForSeconds (0.83f);
 		arrowCooldown = false;
+
 	}
 }

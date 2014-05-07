@@ -33,7 +33,9 @@ public class GameController : MonoBehaviour {
 	}
 	public void success()
 	{
-		gameObject.AddComponent<SuccessScript>();
-		isGameOver = true;
+
+		Application.LoadLevel("levelSelection");
+		//gameObject.AddComponent<SuccessScript>();
+		//isGameOver = true;
 	}
 }

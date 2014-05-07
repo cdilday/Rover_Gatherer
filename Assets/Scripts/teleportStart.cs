@@ -5,6 +5,7 @@ public class teleportStart : MonoBehaviour {
 
 
 	private teleportEnd telEnd;
+	public int coolDown;
 	// Use this for initialization
 	void Start () {
 		telEnd = GameObject.Find ("teleportEnd").GetComponent<teleportEnd> ();
@@ -12,7 +13,8 @@ public class teleportStart : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (coolDown > 0)
+			coolDown--;
 	}
 
 
@@ -20,10 +22,10 @@ public class teleportStart : MonoBehaviour {
 	{
 		// Is this a robot?
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
-		if (rob != null)
+		if (rob != null && coolDown == 0)
 		{
 			rob.transform.position = telEnd.transform.position;
-			
+			telEnd.coolDown = 120;
 			
 		}
 	}
