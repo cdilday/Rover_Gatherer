@@ -9,6 +9,8 @@ public class RobotScript : MonoBehaviour {
 	//type 4: right
 	public int directionType;
 	private GameController gameController;
+	public AudioSource idleEngine;
+	bool soundIsPlaying = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +22,10 @@ public class RobotScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if (gameController.planningStage)
-			//transform.position = new Vector2 (1.5f, 2);
+		if (!gameController.planningStage && gameController.playSound && !soundIsPlaying) {
+			idleEngine.Play ();
+			soundIsPlaying = true;
+		}
 		MoveScript mov =  GetComponent<MoveScript>();
 		if(directionType == 1)
 			mov.direction = new Vector2(0, 1);
