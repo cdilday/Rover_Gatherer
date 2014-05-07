@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class mineralScript : MonoBehaviour {
-
+	public AudioSource pickupSound;
 	public int isPickUp = 0;
 	private GameController gameController;
 	// Use this for initialization
@@ -37,7 +37,8 @@ public class mineralScript : MonoBehaviour {
 		if (rob != null)
 		{
 			isPickUp = 1;
-			
+			if(gameController.playSound)
+				pickupSound.Play ();
 			
 		}
 	}

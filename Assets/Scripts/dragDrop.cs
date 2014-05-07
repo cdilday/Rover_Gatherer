@@ -7,7 +7,7 @@ using UnityEngine;
 class dragDrop : MonoBehaviour
 	
 {
-	//
+	public AudioSource dropSound;
 	private Color mouseOverColor = Color.blue;
 	
 	private Color originalColor ;
@@ -63,6 +63,11 @@ class dragDrop : MonoBehaviour
 		if (gameController.canMoveArrows) {
 			dragging = false;
 			Vector3 currentPos = transform.position;
+			//playing sound
+			if(gameController.playSound)
+			{
+				dropSound.Play ();
+			}
 			//snapping to grid
 			float temp;
 			if(currentPos.x >=0){
