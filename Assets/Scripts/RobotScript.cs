@@ -10,6 +10,7 @@ public class RobotScript : MonoBehaviour {
 	public int directionType;
 	private GameController gameController;
 	public AudioSource idleEngine;
+	public mineralScript mineral;
 	bool soundIsPlaying = false;
 
 	// Use this for initialization
@@ -39,9 +40,10 @@ public class RobotScript : MonoBehaviour {
 
 	void OnDestroy()
 	{
+		if (mineral != null)
+			mineral.isPickUp = 0;
 		// Game Over.
-		// Call Game Controller's game Over function
-		// Robot will already be immediately destroyed
-		gameController.gameOver ();
+		// Don't call other object's function in Ondestroy
+		// It will cause a crash if the scene is changing
 	}
 }

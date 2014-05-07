@@ -3,9 +3,13 @@ using System.Collections;
 
 public class stoneScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	private GameController gameController;
+	void Start()
+	{
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -19,6 +23,7 @@ public class stoneScript : MonoBehaviour {
 		if (rob != null) {
 						SpecialEffectsHelper.Instance.Explosion (transform.position);
 						Destroy (rob.gameObject);
+						gameController.gameOver ();
 						//rob.transform.position = new Vector3 (0, 0, 0);
 				}
 

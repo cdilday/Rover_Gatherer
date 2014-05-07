@@ -24,9 +24,11 @@ public class teleportStart : MonoBehaviour {
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
 		if (rob != null && coolDown == 0)
 		{
-			rob.transform.position = telEnd.transform.position;
+			rob.transform.position = new Vector3(telEnd.transform.position.x,
+			                                     telEnd.transform.position.y,
+			                                     rob.transform.position.z);
 			telEnd.coolDown = 120;
-			
+
 		}
 	}
 

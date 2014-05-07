@@ -37,9 +37,9 @@ public class mineralScript : MonoBehaviour {
 		if (rob != null)
 		{
 			isPickUp = 1;
+			rob.mineral = this;
 			if(gameController.playSound)
 				pickupSound.Play ();
-			
 		}
 	}
 

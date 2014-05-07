@@ -41,7 +41,9 @@ public class ChangeDirection : MonoBehaviour
 		arrowCooldown = true;
 		yield return new WaitForSeconds (0.83f);
 		rob.directionType = type;
-		rob.transform.position = transform.position;
+		rob.transform.position = new Vector3(transform.position.x,
+		                                     transform.position.y,
+		                                     rob.transform.position.z);
 		Destroy (gameObject);
 		yield return new WaitForSeconds (0.83f);
 		arrowCooldown = false;
