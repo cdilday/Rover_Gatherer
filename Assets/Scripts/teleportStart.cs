@@ -8,7 +8,7 @@ public class teleportStart : MonoBehaviour {
 	public int coolDown;
 	// Use this for initialization
 	void Start () {
-		telEnd = GameObject.Find ("teleportEnd").GetComponent<teleportEnd> ();
+		telEnd = GameObject.Find ("Teleporter End").GetComponent<teleportEnd> ();
 	}
 	
 	// Update is called once per frame

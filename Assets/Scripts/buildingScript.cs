@@ -8,7 +8,7 @@ public class buildingScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		 rob = GameObject.Find ("robot").GetComponent<RobotScript> ();
-		startpos =  GameObject.Find ("startPosition").GetComponent<StartPosition> ();
+		startpos =  GameObject.Find ("Start Position").GetComponent<StartPosition> ();
 	}
 	
 	// Update is called once per frame

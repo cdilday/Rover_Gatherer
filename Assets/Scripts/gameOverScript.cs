@@ -36,7 +36,7 @@ public class gameOverScript : MonoBehaviour
 			//if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
 			//ScoreController.score = 0;
 		//	PlayerPrefs.SetInt("level", 1);
-			Application.LoadLevel("s1");
+			Application.LoadLevel(Application.loadedLevel);
 		}
 		
 		if (

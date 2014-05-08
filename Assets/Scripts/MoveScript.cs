@@ -32,7 +32,7 @@ public class MoveScript : MonoBehaviour
 	
 	void Update()
 	{
-
+		Vector3 currentPos = transform.position;
 		// 2 - Movement
 		if (!gameController.planningStage && !gameController.isGameOver) {
 			movement = new Vector2 (
@@ -41,6 +41,9 @@ public class MoveScript : MonoBehaviour
 		}
 		else
 			movement = new Vector2 ( 0, 0);
+		if ((currentPos.y > 4.64 || currentPos.y < -5.64 || currentPos.x > 4 || currentPos.x < -8) && !gameController.isGameOver) {
+			gameController.gameOver ();
+		}
 
 	}
 	

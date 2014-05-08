@@ -31,7 +31,6 @@ public class ChangeDirection : MonoBehaviour
 		if (rob != null && !gameController.planningStage && !arrowCooldown)
 		{
 			StartCoroutine(snapToArrow(rob));
-			//Destroy(gameObject);
 		}
 	}
 

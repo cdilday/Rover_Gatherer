@@ -21,7 +21,7 @@ public class mineralScript : MonoBehaviour {
 						this.transform.position = rob.transform.position;
 				}
 		else if (isPickUp == 2) {
-			mineralHolder mine = GameObject.Find ("mineralHolder").GetComponent<mineralHolder> ();
+			mineralHolder mine = GameObject.Find ("Mineral Holder").GetComponent<mineralHolder> ();
 
 			this.transform.position = mine.transform.position;
 			mine.isIncrease = 1;

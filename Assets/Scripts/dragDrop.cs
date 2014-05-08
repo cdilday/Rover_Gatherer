@@ -69,26 +69,48 @@ class dragDrop : MonoBehaviour
 				dropSound.Play ();
 			}
 			//snapping to grid
-			float temp;
-			if(currentPos.x >=0){
-				if (currentPos.x % 1f < 0.5f){
-					temp = 0.5f;
+			float tempx, tempy;
+			//returning to the original location on UI
+			if(currentPos.y > 4.64 || currentPos.y < -5.64 || currentPos.x > 4 || currentPos.x < -8)
+			{
+				tempx = gameObject.transform.parent.GetComponent <ChangeDirection> ().type;
+				gameObject.transform.parent.transform.position = new Vector3(-8.47f + tempx,
+				                                                             5.3f, 0);
+				gameObject.transform.position = new Vector3(-8.47f + tempx, 5.3f, -1);
+			} 
+			else 
+			{
+				if(currentPos.x >=0){
+					if (currentPos.x % 1f < 0.53f){
+						tempx = 0.53f;
+					}
+					else{
+						tempx = -0.47f;
+					}
 				}
 				else{
-					temp = -0.5f;
+					if (currentPos.x % 1f > -0.47f ){
+						tempx = -0.47f;
+					}
+					else{
+						tempx = 0.53f;
+					}
 				}
-			}
-			else{
-				if (currentPos.x % 1f > -0.5f ){
-					temp = -0.5f;
+				if(currentPos.y >=0){
+						tempy = 0.14f;
+
 				}
 				else{
-					temp = 0.5f;
+						tempy = 0.14f;
 				}
+				gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
+				                                                             Mathf.Round(currentPos.y) + tempy,
+				                                                             0);
+				gameObject.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
+                                                             Mathf.Round(currentPos.y) + tempy,
+                                                             -1);
 			}
-			gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) + temp,
-			                                                             Mathf.Round(currentPos.y),
-			                                                             currentPos.z);
+
 		}
 	}
 	
