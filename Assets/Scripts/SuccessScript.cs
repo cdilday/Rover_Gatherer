@@ -6,14 +6,22 @@
 public class SuccessScript : MonoBehaviour
 {
 	private GameController gameController;
+	public Transform scorePanelPrefab;
+
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
 		}
+
+		// Create a new shot
+		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;
+		
+		// Assign position
+		scorePanelTransform.position = transform.position;
 	}
-	void OnGUI()
+	/*void OnGUI()
 	{
 		
 		const int buttonWidth = 120;
@@ -58,5 +66,5 @@ public class SuccessScript : MonoBehaviour
 			//	PlayerPrefs.SetInt("level", 1);
 			Application.LoadLevel("levelSelection");
 		}
-	}
+	}*/
 }
