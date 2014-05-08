@@ -39,7 +39,7 @@ public class ChangeDirection : MonoBehaviour
 	IEnumerator snapToArrow(RobotScript rob)
 	{
 		arrowCooldown = true;
-		yield return new WaitForSeconds (0.83f);
+		yield return new WaitForSeconds (0.8f);
 		rob.directionType = type;
 		rob.transform.position = new Vector3(transform.position.x,
 		                                     transform.position.y,
