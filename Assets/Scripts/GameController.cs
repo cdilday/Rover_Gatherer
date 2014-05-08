@@ -12,6 +12,15 @@ public class GameController : MonoBehaviour {
 	public bool isGameOver = false;
 	public int mineralsIn = 0; // number of minerals gathered
 	public int mineralsTotal = 3; //number of minerals out
+
+	//timeCounter: use for score calculation. Need to find better solution
+	public int timeCounter = 5000;
+	public int timeToGet3Stars = 2000;
+	public int timeToGet2Stars = 1000;
+	public int timeToGet1Stars = 0;
+	private bool startCount = false;
+	public Transform scorePanelPrefab;
+
 	// Use this for initialization
 	void Start () {
 		planningStage = true;
@@ -25,10 +34,14 @@ public class GameController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space) && planningStage) {
 			planningStage = false; //temporally removed for prototype purpose
 			//canMoveArrows = false;
+			startCount = true;
 		}
 		if (mineralsIn == mineralsTotal && !isGameOver) {
 			success();
 		}
+
+		if (startCount == true && timeCounter > 0)
+			timeCounter--;
 	}
 
 	//this is where the gameover will happen. Anything that causes a game over should call this
@@ -39,7 +52,12 @@ public class GameController : MonoBehaviour {
 	}
 	public void success()
 	{
-		gameObject.AddComponent<SuccessScript>();
+		//gameObject.AddComponent<SuccessScript>();
+		// Create a new panel
+		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;
+		
+		// Assign position
+		scorePanelTransform.position = transform.position;
 		isGameOver = true;
 	}
 }
