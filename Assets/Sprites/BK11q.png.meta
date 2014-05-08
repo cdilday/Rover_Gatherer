@@ -108,5 +108,14 @@ TextureImporter:
         height: 35
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: BK11q_7
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 363
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
