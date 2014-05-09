@@ -13,9 +13,10 @@ public class arrowScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(!drag.dragging){
-			this.transform.position = new Vector3(this.transform.position.x, 
-			                                      this.transform.position.y,
-			                                      0);
+			this.transform.position = new Vector3(gameObject.transform.parent.transform.position.x, 
+			                                      gameObject.transform.parent.transform.position.y,
+			                                      -1);
+			this.transform.rotation = new Quaternion(0,0,0,0);
 		}
 	}
 }

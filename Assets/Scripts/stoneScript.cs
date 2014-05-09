@@ -18,7 +18,6 @@ public class stoneScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D otherCollider){ 
-		Debug.Log ("stone collsions");
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
 		if (rob != null) {
 						SpecialEffectsHelper.Instance.Explosion (transform.position);
