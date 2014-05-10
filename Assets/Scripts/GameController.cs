@@ -10,6 +10,9 @@ public class GameController : MonoBehaviour {
 	public bool planningStage;
 	public bool canMoveArrows;
 	public bool isGameOver = false;
+	public int arrowCount = 4;
+	public int arrowsOut = 4;
+	GameObject[] arrowCounter;
 	public int mineralsIn = 0; // number of minerals gathered
 	public int mineralsTotal = 3; //number of minerals out
 
@@ -31,6 +34,8 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		arrowCounter = GameObject.FindGameObjectsWithTag ("arrow");
+		arrowsOut = arrowCounter.Length;
 		if (Input.GetKey (KeyCode.Space) && planningStage) {
 			planningStage = false; //temporally removed for prototype purpose
 			//canMoveArrows = false;
@@ -40,7 +45,7 @@ public class GameController : MonoBehaviour {
 			success();
 		}
 
-		if (startCount == true && timeCounter > 0)
+		if (startCount == true && timeCounter > 0 && !isGameOver)
 			timeCounter--;
 	}
 
@@ -52,7 +57,7 @@ public class GameController : MonoBehaviour {
 	}
 	public void success()
 	{
-		//gameObject.AddComponent<SuccessScript>();
+		timeCounter += arrowsOut * 300;
 		// Create a new panel
 		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;
 		
