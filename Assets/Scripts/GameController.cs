@@ -23,6 +23,7 @@ public class GameController : MonoBehaviour {
 	public int timeToGet1Stars = 0;
 	private bool startCount = false;
 	public Transform scorePanelPrefab;
+	public buildingScript building;
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +31,12 @@ public class GameController : MonoBehaviour {
 		canMoveArrows = true;
 		if (playSound && playMusic)
 			BackgroundMusic.Play ();
+		arrowCounter = GameObject.FindGameObjectsWithTag ("arrow");
+		arrowCount = arrowCounter.Length;
+		GameObject buildingObject = GameObject.Find ("Building");
+		if (buildingObject != null) {
+			building = buildingObject.GetComponent <buildingScript>();
+		}
 	}
 	
 	// Update is called once per frame
@@ -41,7 +48,7 @@ public class GameController : MonoBehaviour {
 			//canMoveArrows = false;
 			startCount = true;
 		}
-		if (mineralsIn == mineralsTotal && !isGameOver) {
+		if (mineralsIn == mineralsTotal && !isGameOver && building.hasReturned) {
 			success();
 		}
 

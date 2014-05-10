@@ -5,6 +5,7 @@ public class buildingScript : MonoBehaviour {
 
 	private RobotScript rob;
 	private StartPosition startpos;
+	public bool hasReturned = false;
 	// Use this for initialization
 	void Start () {
 		 rob = GameObject.Find ("robot").GetComponent<RobotScript> ();
@@ -19,14 +20,10 @@ public class buildingScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
 		// Is this a robot?
-		mineralScript mineral = otherCollider.gameObject.GetComponent<mineralScript>();
-		if (mineral != null)
+		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
+		if (rob != null)
 		{
-			mineral.isPickUp = 2;
-			rob.transform.position = startpos.transform.position;
-			rob.directionType = 2;
-			
-			
+			hasReturned = true;
 		}
 	}
 }

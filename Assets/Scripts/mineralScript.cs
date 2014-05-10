@@ -16,9 +16,12 @@ public class mineralScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isPickUp == 1) {
-						RobotScript rob = GameObject.Find ("robot").GetComponent<RobotScript> ();
-						this.transform.position = rob.transform.position;
-						this.transform.position = rob.transform.position;
+			mineralHolder mine = GameObject.Find ("Mineral Holder").GetComponent<mineralHolder> ();
+			
+			this.transform.position = mine.transform.position;
+			mine.isIncrease = 1;
+			isPickUp = 0;
+			gameController.mineralsIn += 1;
 				}
 		else if (isPickUp == 2) {
 			mineralHolder mine = GameObject.Find ("Mineral Holder").GetComponent<mineralHolder> ();

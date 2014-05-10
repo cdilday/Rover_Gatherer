@@ -17,6 +17,6 @@ public class mineralHolder : MonoBehaviour {
 			loco.x = loco.x + 1;
 			this.transform.position = loco;
 			isIncrease = 0;
-				}
+		}
 	}
 }

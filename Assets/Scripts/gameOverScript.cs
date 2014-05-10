@@ -19,23 +19,13 @@ public class gameOverScript : MonoBehaviour
 		const int buttonWidth = 120;
 		const int buttonHeight = 60;
 		
-		if (
-			GUI.Button(
+		if (GUI.Button(
 			// Center in X, 1/3 of the height in Y
-			new Rect(
-			Screen.width / 2 - (buttonWidth / 2),
+			new Rect(Screen.width / 2 - (buttonWidth / 2),
 			(1 * Screen.height / 3) - (buttonHeight / 2),
-			buttonWidth,
-			buttonHeight
-			),
-			"Retry!"
-			)
-			)
+			buttonWidth, buttonHeight), "Retry!"))
 		{
 			// Reload the level
-			//if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
-			//ScoreController.score = 0;
-		//	PlayerPrefs.SetInt("level", 1);
 			Application.LoadLevel(Application.loadedLevel);
 		}
 		
