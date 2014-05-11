@@ -60,10 +60,57 @@ class dragDrop : MonoBehaviour {
 			//returning to the original location on UI
 			if(currentPos.y > 4.64 || currentPos.y < -5.64 || currentPos.x > 4 || currentPos.x < -8)
 			{
-				tempx = gameObject.transform.parent.GetComponent <ChangeDirection> ().type;
+				if(gameObject.transform.parent.GetComponent <ChangeDirection> ()){
+					int tempType = gameObject.transform.parent.GetComponent <ChangeDirection> ().type;
+					tempx = 1;
+					tempy = 5.3f;
+					switch(tempType)
+					{
+						case 1: 
+							tempx = 1;
+							tempy = 5.68f;
+							break;
+						case 2:
+							tempx = 1;
+							tempy = 5;
+							break;
+						case 3:
+							tempx = 2;
+							tempy = 5.3f;
+							break;
+						case 4:	
+							tempx = 3;
+							tempy = 5.3f;
+							break;
+					}
+				}
+				else{
+					int tempType = gameObject.transform.parent.GetComponent <arrowFlip> ().type;
+					tempx = 1;
+					tempy = 5.3f;
+					switch(tempType)
+					{
+					case 1: 
+						tempx = 4;
+						tempy = 5.68f;
+						break;
+					case 2:
+						tempx = 4;
+						tempy = 5;
+						break;
+					case 3:
+						tempx = 5;
+						tempy = 5.3f;
+						break;
+					case 4:	
+						tempx = 6;
+						tempy = 5.3f;
+						break;
+					}
+				}
 				gameObject.transform.parent.transform.position = new Vector3(-8.47f + tempx,
-				                                                             5.3f, 0);
-				gameObject.transform.position = new Vector3(-8.47f + tempx, 5.3f, -1);
+				                                                             tempy, 0);
+				gameObject.transform.position = new Vector3(-8.47f + tempx, tempy, -1);
 			} 
 			else 
 			{
