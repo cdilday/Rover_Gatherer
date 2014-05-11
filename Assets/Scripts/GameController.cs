@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour {
 	public int timeToGet3Stars = 2000;
 	public int timeToGet2Stars = 1000;
 	public int timeToGet1Stars = 0;
-	private bool startCount = false;
+	public bool startCount = false;
 	public Transform scorePanelPrefab;
 	public buildingScript building;
 
@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour {
 		arrowsOut = arrowCounter.Length;
 		if (Input.GetKey (KeyCode.Space) && planningStage) {
 			planningStage = false; //temporally removed for prototype purpose
-			//canMoveArrows = false;
+			canMoveArrows = false;
 			startCount = true;
 		}
 		if (mineralsIn == mineralsTotal && !isGameOver && building.hasReturned) {
