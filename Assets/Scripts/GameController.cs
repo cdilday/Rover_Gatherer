@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour {
 	GameObject[] arrowCounter;
 	public int mineralsIn = 0; // number of minerals gathered
 	public int mineralsTotal = 3; //number of minerals out
+	GameObject[] mineralCounter;
 
 	//timeCounter: use for score calculation. Need to find better solution
 	public int timeCounter = 5000;
@@ -37,6 +38,8 @@ public class GameController : MonoBehaviour {
 		if (buildingObject != null) {
 			building = buildingObject.GetComponent <buildingScript>();
 		}
+		mineralCounter = GameObject.FindGameObjectsWithTag ("Pick-up");
+		mineralsTotal = mineralCounter.Length;
 	}
 	
 	// Update is called once per frame

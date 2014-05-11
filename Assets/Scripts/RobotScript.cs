@@ -38,6 +38,14 @@ public class RobotScript : MonoBehaviour {
 			mov.direction = new Vector2(1, 0);
 	}
 
+	void OnTriggerEnter2D(Collider2D otherCollider)
+	{
+		buildingScript building = otherCollider.gameObject.GetComponent<buildingScript> ();
+		if (building != null) {
+			building.hasReturned = true;
+		}
+	}
+
 	void OnDestroy()
 	{
 		if (mineral != null)
