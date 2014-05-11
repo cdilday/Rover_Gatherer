@@ -1,15 +1,10 @@
 ﻿using System.Collections;
-
 using UnityEngine;
 
+class dragDrop : MonoBehaviour {
+	public AudioClip dropSound;
 
-
-class dragDrop : MonoBehaviour
-	
-{
-	public AudioSource dropSound;
 	private Color mouseOverColor = Color.blue;
-	
 	private Color originalColor ;
 	
 	public bool dragging = false;
@@ -24,6 +19,7 @@ class dragDrop : MonoBehaviour
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
 		}
+		audio.enabled = true;
 	}
 	
 	void OnMouseEnter()
@@ -34,31 +30,22 @@ class dragDrop : MonoBehaviour
 		}
 	}
 	
-	
-	
 	void OnMouseExit()
-		
 	{
 		if (gameController.canMoveArrows) {
 			gameObject.transform.parent.renderer.material.color = originalColor;
 		}
 	}
-	
-	
 
 	void OnMouseDown()
-		
 	{
 		if (gameController.canMoveArrows) {
 			distance = Vector3.Distance (transform.position, Camera.main.transform.position);
 			dragging = true;
 		}
 	}
-	
-	
-	
+
 	void OnMouseUp()
-		
 	{
 		if (gameController.canMoveArrows) {
 			dragging = false;
@@ -66,7 +53,7 @@ class dragDrop : MonoBehaviour
 			//playing sound
 			if(gameController.playSound)
 			{
-				dropSound.Play ();
+				audio.PlayOneShot(dropSound);
 			}
 			//snapping to grid
 			float tempx, tempy;
@@ -110,29 +97,21 @@ class dragDrop : MonoBehaviour
                                                              Mathf.Round(currentPos.y) + tempy,
                                                              -1);
 			}
-
 		}
 	}
 	
 	
 	
 	void Update()
-		
 	{
-		
-		if (dragging)
-			
+		if (dragging)	
 		{
-			
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			
 			Vector3 rayPoint = ray.GetPoint(distance);
 			
 			transform.parent.position = rayPoint;
 			transform.position = rayPoint;
-
 		}
-		
 	}
-	
 }

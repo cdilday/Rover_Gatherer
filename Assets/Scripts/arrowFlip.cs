@@ -8,7 +8,7 @@ public class arrowFlip : MonoBehaviour {
 	//type 2: down
 	//type 3: left
 	//type 4: right
-	private float zAxis;
+	//private float zAxis;
 	private GameController gameController;
 	public int type;
 	public bool arrowCooldown = false;
@@ -22,7 +22,7 @@ public class arrowFlip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		zAxis = this.transform.rotation.z;
+		//zAxis = this.transform.rotation.z;
 	}
 	
 

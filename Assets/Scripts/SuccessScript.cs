@@ -5,15 +5,15 @@
 /// </summary>
 public class SuccessScript : MonoBehaviour
 {
-	private GameController gameController;
+	//private GameController gameController;
 	public Transform scorePanelPrefab;
 
 	void Start()
 	{
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		/*GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
-		}
+		}*/
 
 		// Create a new shot
 		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;

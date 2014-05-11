@@ -31,7 +31,7 @@ public class scorePanel : MonoBehaviour {
 			animator.SetInteger ("starCounter", 3);
 		else if(scoreCounter > star2)
 			animator.SetInteger ("starCounter", 2);
-		else
+		else if(scoreCounter > star1)
 			animator.SetInteger ("starCounter", 1);
 	}
 	

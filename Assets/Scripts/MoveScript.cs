@@ -19,7 +19,7 @@ public class MoveScript : MonoBehaviour
 	/// </summary>
 	public Vector2 direction = new Vector2(0, -1);
 	
-	private Vector2 movement;
+	public Vector2 movement;
 	
 	void Start()
 	{

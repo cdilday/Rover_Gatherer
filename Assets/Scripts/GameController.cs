@@ -54,6 +54,9 @@ public class GameController : MonoBehaviour {
 		if (mineralsIn == mineralsTotal && !isGameOver && building.hasReturned) {
 			success();
 		}
+		else if (building.hasReturned && mineralsIn != mineralsTotal && !isGameOver) {
+			gameOver();
+		}
 
 		if (startCount == true && timeCounter > 0 && !isGameOver)
 			timeCounter--;

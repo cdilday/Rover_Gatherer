@@ -3,19 +3,18 @@
 /// <summary>
 /// Start or quit the game
 /// </summary>
-public class gameOverScript : MonoBehaviour
-{
-	private GameController gameController;
+public class gameOverScript : MonoBehaviour {
+
+	//private GameController gameController;
 	void Start()
 	{
-		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		/*GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
-		}
+		}*/
 	}
 	void OnGUI()
 	{
-
 		const int buttonWidth = 120;
 		const int buttonHeight = 60;
 		
@@ -35,12 +34,7 @@ public class gameOverScript : MonoBehaviour
 			new Rect(
 			Screen.width / 2 - (buttonWidth / 2),
 			(2 * Screen.height / 3) - (buttonHeight / 2),
-			buttonWidth,
-			buttonHeight
-			),
-			"Back to menu"
-			)
-			)
+			buttonWidth, buttonHeight), "Back to menu"))
 		{
 			// Reload the level
 			////if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
