@@ -4,11 +4,13 @@ using System.Collections;
 public class FuelBar : MonoBehaviour {
 	public float barDisplay; //current progress
 	public float decay;
+	public AudioClip lowBeep;
 	public Vector2 pos = new Vector2(100,0);
 	public Vector2 size = new Vector2(20,20);
 	public Texture2D emptyTex;
 	public Texture2D fullTex;
 	private bool isGameOver = false;
+	private bool changed = false;
 
 	private GameController gameController;
 
@@ -42,6 +44,10 @@ public class FuelBar : MonoBehaviour {
 		if (barDisplay == 0 && !isGameOver) {
 			gameController.gameOver ();
 			isGameOver = true;
+		}
+		if (barDisplay < 0.1 && !changed) {
+			changed = true;
+			audio.PlayOneShot(lowBeep);
 		}
 	}
 }

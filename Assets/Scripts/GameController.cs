@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour {
 	public int mineralsIn = 0; // number of minerals gathered
 	public int mineralsTotal = 3; //number of minerals out
 	GameObject[] mineralCounter;
+	//make this match the level it currently is in the inspector.
+	public int level = 1;
 
 	//timeCounter: use for score calculation. Need to find better solution
 	public int timeCounter = 5000;
