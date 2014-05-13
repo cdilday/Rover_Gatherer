@@ -46,6 +46,14 @@ public class ChangeDirection : MonoBehaviour
 		else
 			yield return new WaitForSeconds (0.83f);
 		rob.directionType = type;
+		if(type == 1)
+			rob.mov.direction = new Vector2(0, 1);
+		else if(type == 2)
+			rob.mov.direction = new Vector2(0, -1);
+		else if(type == 3)
+			rob.mov.direction = new Vector2(-1, 0);
+		else if(type == 4)
+			rob.mov.direction = new Vector2(1, 0);
 		rob.transform.position = new Vector3(transform.position.x,
 		                                     transform.position.y,
 		                                     rob.transform.position.z);

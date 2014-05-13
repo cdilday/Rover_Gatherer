@@ -12,6 +12,7 @@ public class RobotScript : MonoBehaviour {
 	public AudioSource idleEngine;
 	public mineralScript mineral;
 	bool soundIsPlaying = false;
+	public MoveScript mov;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,7 @@ public class RobotScript : MonoBehaviour {
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
 		}
+		mov =  GetComponent<MoveScript>();
 	}
 	
 	// Update is called once per frame
@@ -27,15 +29,15 @@ public class RobotScript : MonoBehaviour {
 			idleEngine.Play ();
 			soundIsPlaying = true;
 		}
-		MoveScript mov =  GetComponent<MoveScript>();
-		if(directionType == 1)
-			mov.direction = new Vector2(0, 1);
-		else if(directionType == 2)
-			mov.direction = new Vector2(0, -1);
-		else if(directionType == 3)
-			mov.direction = new Vector2(-1, 0);
-		else if(directionType == 4)
-			mov.direction = new Vector2(1, 0);
+		if (directionType == 1) { //down
+			mov.direction = new Vector2 (0, 1);
+		} else if (directionType == 2) { //up
+			mov.direction = new Vector2 (0, -1);
+		} else if (directionType == 3) { //left
+			mov.direction = new Vector2 (-1, 0);
+		} else if (directionType == 4) { //right
+			mov.direction = new Vector2 (1, 0);
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D otherCollider)

@@ -20,11 +20,12 @@ public class stoneScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D otherCollider){ 
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
 		if (rob != null) {
-						SpecialEffectsHelper.Instance.Explosion (transform.position);
-						Destroy (rob.gameObject);
-						gameController.gameOver ();
-						//rob.transform.position = new Vector3 (0, 0, 0);
-				}
+			SpecialEffectsHelper.Instance.Explosion (transform.position);
+			Destroy (rob.gameObject);
+			gameController.roverExploded = true;
+			gameController.gameOver ();
+			//rob.transform.position = new Vector3 (0, 0, 0);
+		}
 
 
 		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();

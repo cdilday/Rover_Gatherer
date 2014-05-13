@@ -4,6 +4,8 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
 	public AudioSource BackgroundMusic;
+	public AudioClip roverExplosion;
+	public bool roverExploded = false;
 	//These bools will ideally be used as part of an options menu
 	public bool playSound; //this is for sound in general and will override play music
 	public bool playMusic; //this is for just the background music. 
@@ -64,8 +66,12 @@ public class GameController : MonoBehaviour {
 			gameOver();
 		}
 
-		if (startCount == true && timeCounter > 0 && !isGameOver)
-			timeCounter--;
+		if (startCount == true && timeCounter > 0 && !isGameOver) {
+			if (fastMode)
+				timeCounter -= 4;
+			else
+				timeCounter--;
+		}
 	}
 
 	//this is where the gameover will happen. Anything that causes a game over should call this
@@ -73,6 +79,8 @@ public class GameController : MonoBehaviour {
 	{
 		gameObject.AddComponent<gameOverScript>();
 		isGameOver = true;
+		if (roverExploded && playSound)
+			audio.PlayOneShot (roverExplosion);
 	}
 	public void success()
 	{
