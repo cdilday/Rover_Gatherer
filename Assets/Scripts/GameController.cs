@@ -28,6 +28,10 @@ public class GameController : MonoBehaviour {
 	public Transform scorePanelPrefab;
 	public buildingScript building;
 
+
+	//fast forward
+	public bool fastMode = false;
+
 	// Use this for initialization
 	void Start () {
 		planningStage = true;

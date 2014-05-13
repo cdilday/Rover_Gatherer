@@ -14,6 +14,7 @@ public class ChangeDirection : MonoBehaviour
 	private GameController gameController;
 	public int type;
 	public bool arrowCooldown = false;
+	private bool fastMode;
 	
 	void Start () { 
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -22,7 +23,9 @@ public class ChangeDirection : MonoBehaviour
 		}
 	}
 	
-
+	void Update(){
+		fastMode = gameController.fastMode;
+		}
 	
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{
@@ -38,13 +41,19 @@ public class ChangeDirection : MonoBehaviour
 	IEnumerator snapToArrow(RobotScript rob)
 	{
 		arrowCooldown = true;
-		yield return new WaitForSeconds (0.83f);
+		if(fastMode == true)
+			yield return new WaitForSeconds (0.01f);
+		else
+			yield return new WaitForSeconds (0.83f);
 		rob.directionType = type;
 		rob.transform.position = new Vector3(transform.position.x,
 		                                     transform.position.y,
 		                                     rob.transform.position.z);
 		Destroy (gameObject);
-		yield return new WaitForSeconds (0.83f);
+		if(fastMode == true)
+			yield return new WaitForSeconds (0.01f);
+		else
+			yield return new WaitForSeconds (0.83f);
 		arrowCooldown = false;
 
 	}

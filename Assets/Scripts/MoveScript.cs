@@ -20,7 +20,7 @@ public class MoveScript : MonoBehaviour
 	public Vector2 direction = new Vector2(0, -1);
 	
 	public Vector2 movement;
-	
+	private bool fastMode;
 	void Start()
 	{
 		//speed = new Vector2(10, speedY);
@@ -44,6 +44,10 @@ public class MoveScript : MonoBehaviour
 		if ((currentPos.y > 4.64 || currentPos.y < -5.64 || currentPos.x > 4 || currentPos.x < -8) && !gameController.isGameOver) {
 			gameController.gameOver ();
 		}
+
+		fastMode = gameController.fastMode;
+		if (fastMode == true)
+			speed = new Vector2 (5, 5);
 
 	}
 	
