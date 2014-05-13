@@ -10,4 +10,17 @@ public class PushableScript : MonoBehaviour {
 	void Start() {
 		//Physics2D.IgnoreLayerCollision(up.collider2D, collider2D);
 	}
+
+
+
+	void OnTriggerEnter2D(Collider2D otherCollider){ 
+
+		
+		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
+		if (shot != null) {
+			SpecialEffectsHelper.Instance.Explosion (transform.position);
+			Destroy (shot.gameObject);
+		}
+		
+	}
 }

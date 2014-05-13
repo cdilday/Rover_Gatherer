@@ -26,6 +26,13 @@ public class stoneScript : MonoBehaviour {
 						//rob.transform.position = new Vector3 (0, 0, 0);
 				}
 
+
+		ShotScript shot = otherCollider.gameObject.GetComponent<ShotScript>();
+		if (shot != null) {
+			SpecialEffectsHelper.Instance.Explosion (transform.position);
+			Destroy (shot.gameObject);
+				}
+
 		}
 
 
