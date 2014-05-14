@@ -25,7 +25,7 @@ public class ChangeDirection : MonoBehaviour
 	
 	void Update(){
 		fastMode = gameController.fastMode;
-		}
+	}
 	
 	void OnTriggerEnter2D(Collider2D otherCollider)
 	{

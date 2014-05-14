@@ -48,7 +48,6 @@ class dragDrop : MonoBehaviour {
 	void OnMouseUp()
 	{
 		if (gameController.canMoveArrows) {
-			dragging = false;
 			Vector3 currentPos = transform.position;
 			//playing sound
 			if(gameController.playSound)
@@ -144,6 +143,7 @@ class dragDrop : MonoBehaviour {
 				                                                             tempy, 0);
 				gameObject.transform.position = new Vector3(-8.47f + tempx, tempy, 0);
 			} 
+			dragging = false;
 		}
 	}
 	
