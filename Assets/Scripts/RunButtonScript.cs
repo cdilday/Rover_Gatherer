@@ -4,6 +4,7 @@ using System.Collections;
 public class RunButtonScript : MonoBehaviour {
 
 	private GameController gameController;
+	public Sprite reset;
 	// Use this for initialization
 	void Start () {
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -18,6 +19,8 @@ public class RunButtonScript : MonoBehaviour {
 			gameController.planningStage = false; 
 			gameController.canMoveArrows = false;
 			gameController.startCount = true;
+			this.GetComponent<SpriteRenderer>().sprite = reset;
+			this.transform.localScale = new Vector3(1.5f, 1.5f, 1);
 		} else {
 			Application.LoadLevel(Application.loadedLevel);
 		}
