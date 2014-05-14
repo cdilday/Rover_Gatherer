@@ -21,9 +21,12 @@ public class clickListerner : MonoBehaviour {
 	}
 
 		void OnMouseDown() {
-			if(levelName.StartsWith("s"))
-			{
+			if (levelName.StartsWith ("s")) {
+				GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript>().menuMusic.Stop();
 				GameObject.FindGameObjectWithTag ("Sound Player").audio.Play ();
+			} else {
+				GameObject.FindGameObjectWithTag ("Sound Player").audio.Stop ();
+				GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript>().playMenu();
 			}
 			Application.LoadLevel(levelName);
 		}
