@@ -14,6 +14,7 @@ public class BackToMenu : MonoBehaviour {
 	}
 	void OnMouseDown()
 	{
+		GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript> ().switchToMenuMusic ();
 		Application.LoadLevel ("levelSelection");
 	}
 }

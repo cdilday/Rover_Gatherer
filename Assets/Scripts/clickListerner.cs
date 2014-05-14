@@ -3,7 +3,7 @@ using System.Collections;
 
 public class clickListerner : MonoBehaviour {
 	public string levelName;
-	private Color mouseOverColor = Color.blue;
+	private Color mouseOverColor = Color.cyan;
 	private Color originalColor ;
 
 
@@ -20,15 +20,9 @@ public class clickListerner : MonoBehaviour {
 
 	}
 
-		void OnMouseDown() {
-			if (levelName.StartsWith ("s")) {
-				GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript>().menuMusic.Stop();
-				GameObject.FindGameObjectWithTag ("Sound Player").audio.Play ();
-			} else {
-				GameObject.FindGameObjectWithTag ("Sound Player").audio.Stop ();
-				GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript>().playMenu();
-			}
-			Application.LoadLevel(levelName);
-		}
+	void OnMouseDown() {
+		Application.LoadLevel(levelName);
+		GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript> ().newLevel = true;
+	}
 
 }

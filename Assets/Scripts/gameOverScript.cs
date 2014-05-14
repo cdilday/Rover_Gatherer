@@ -40,6 +40,7 @@ public class gameOverScript : MonoBehaviour {
 			////if(ScoreController.score > ScoreController.highScore) ScoreController.highScore = ScoreController.score;
 			//ScoreController.score = 0;
 		//	PlayerPrefs.SetInt("level", 1);
+			GameObject.FindGameObjectWithTag ("Sound Player").GetComponent<SoundPlayerScript> ().switchToMenuMusic();
 			Application.LoadLevel("levelSelection");
 
 		}

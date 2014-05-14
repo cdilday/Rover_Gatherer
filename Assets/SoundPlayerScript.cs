@@ -3,10 +3,10 @@ using System.Collections;
 
 public class SoundPlayerScript : MonoBehaviour {
 
-	public AudioClip BackgroundMusic;
+	public AudioSource BackgroundMusic;
 	public AudioSource menuMusic;
 	public bool playMusic; //this is for just the background music. 
-	bool newLevel = false;
+	public bool newLevel = false;
 	// Use this for initialization
 
 	void Awake() {
@@ -22,17 +22,26 @@ public class SoundPlayerScript : MonoBehaviour {
 				menuMusic.Play();
 			}
 			else
-				audio.Play ();
+			{
+				BackgroundMusic.Play();
+			}
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (newLevel){
+			if(Application.loadedLevelName.StartsWith ("s")) {
+				menuMusic.Stop();
+				BackgroundMusic.Play ();
+				newLevel = false;
+			}
+		}
 	}
 
-	public void playMenu()
+	public void switchToMenuMusic()
 	{
+		BackgroundMusic.Stop ();
 		menuMusic.Play ();
 	}
 }
