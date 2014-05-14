@@ -21,6 +21,10 @@ public class clickListerner : MonoBehaviour {
 	}
 
 		void OnMouseDown() {
+			if(levelName.StartsWith("s"))
+			{
+				GameObject.FindGameObjectWithTag ("Sound Player").audio.Play ();
+			}
 			Application.LoadLevel(levelName);
 		}
 

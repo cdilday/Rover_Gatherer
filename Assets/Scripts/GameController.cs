@@ -3,12 +3,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	public AudioSource BackgroundMusic;
 	public AudioClip roverExplosion;
 	public bool roverExploded = false;
 	//These bools will ideally be used as part of an options menu
 	public bool playSound; //this is for sound in general and will override play music
-	public bool playMusic; //this is for just the background music. 
 	public bool planningStage;
 	public bool canMoveArrows;
 	public bool isGameOver = false;
@@ -38,8 +36,6 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		planningStage = true;
 		canMoveArrows = true;
-		if (playSound && playMusic)
-			BackgroundMusic.Play ();
 		arrowCounter = GameObject.FindGameObjectsWithTag ("arrow");
 		arrowCount = arrowCounter.Length;
 		GameObject buildingObject = GameObject.Find ("Building");

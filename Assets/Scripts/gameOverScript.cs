@@ -41,6 +41,7 @@ public class gameOverScript : MonoBehaviour {
 			//ScoreController.score = 0;
 		//	PlayerPrefs.SetInt("level", 1);
 			Application.LoadLevel("levelSelection");
+
 		}
 	}
 }
