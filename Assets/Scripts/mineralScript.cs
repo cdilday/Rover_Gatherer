@@ -22,6 +22,7 @@ public class mineralScript : MonoBehaviour {
 			mine.isIncrease = 1;
 			isPickUp = 0;
 			gameController.mineralsIn += 1;
+			isPickUp = 3;
 				}
 		else if (isPickUp == 2) {
 			mineralHolder mine = GameObject.Find ("Mineral Holder").GetComponent<mineralHolder> ();
@@ -30,6 +31,7 @@ public class mineralScript : MonoBehaviour {
 			mine.isIncrease = 1;
 			isPickUp = 0;
 			gameController.mineralsIn += 1;
+			isPickUp = 3;
 		}
 	}
 	
@@ -37,7 +39,7 @@ public class mineralScript : MonoBehaviour {
 	{
 		// Is this a robot?
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
-		if (rob != null)
+		if (rob != null && isPickUp != 3)
 		{
 			isPickUp = 1;
 			rob.mineral = this;

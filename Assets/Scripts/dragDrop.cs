@@ -58,6 +58,38 @@ class dragDrop : MonoBehaviour {
 			//snapping to grid
 			float tempx, tempy;
 			//returning to the original location on UI
+
+			 
+
+			if(currentPos.x >=0){
+				if (currentPos.x % 1f < 0.53f){
+					tempx = 0.53f;
+				}
+				else{
+					tempx = -0.47f;
+				}
+			}
+			else{
+				if (currentPos.x % 1f > -0.47f ){
+					tempx = -0.47f;
+				}
+				else{
+					tempx = 0.53f;
+				}
+			}
+			if(currentPos.y >=0){
+					tempy = 0.14f;
+
+			}
+			else{
+					tempy = 0.14f;
+			}
+			gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
+			                                                             Mathf.Round(currentPos.y) + tempy,
+			                                                             0);
+			gameObject.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
+                                                     Mathf.Round(currentPos.y) + tempy,
+                                                     -1);
 			if(currentPos.y > 4.64 || currentPos.y < -5.64 || currentPos.x > 4 || currentPos.x < -8)
 			{
 				if(gameObject.transform.parent.GetComponent <ChangeDirection> ()){
@@ -66,22 +98,22 @@ class dragDrop : MonoBehaviour {
 					tempy = 5.3f;
 					switch(tempType)
 					{
-						case 1: 
-							tempx = 1;
-							tempy = 5.68f;
-							break;
-						case 2:
-							tempx = 1;
-							tempy = 5;
-							break;
-						case 3:
-							tempx = 2;
-							tempy = 5.3f;
-							break;
-						case 4:	
-							tempx = 3;
-							tempy = 5.3f;
-							break;
+					case 1: 
+						tempx = 1;
+						tempy = 5.68f;
+						break;
+					case 2:
+						tempx = 1;
+						tempy = 5;
+						break;
+					case 3:
+						tempx = 2;
+						tempy = 5.3f;
+						break;
+					case 4:	
+						tempx = 3;
+						tempy = 5.3f;
+						break;
 					}
 				}
 				else{
@@ -110,40 +142,8 @@ class dragDrop : MonoBehaviour {
 				}
 				gameObject.transform.parent.transform.position = new Vector3(-8.47f + tempx,
 				                                                             tempy, 0);
-				gameObject.transform.position = new Vector3(-8.47f + tempx, tempy, -1);
+				gameObject.transform.position = new Vector3(-8.47f + tempx, tempy, 0);
 			} 
-			else 
-			{
-				if(currentPos.x >=0){
-					if (currentPos.x % 1f < 0.53f){
-						tempx = 0.53f;
-					}
-					else{
-						tempx = -0.47f;
-					}
-				}
-				else{
-					if (currentPos.x % 1f > -0.47f ){
-						tempx = -0.47f;
-					}
-					else{
-						tempx = 0.53f;
-					}
-				}
-				if(currentPos.y >=0){
-						tempy = 0.14f;
-
-				}
-				else{
-						tempy = 0.14f;
-				}
-				gameObject.transform.parent.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
-				                                                             Mathf.Round(currentPos.y) + tempy,
-				                                                             0);
-				gameObject.transform.position = new Vector3(Mathf.Round(currentPos.x) + tempx,
-                                                             Mathf.Round(currentPos.y) + tempy,
-                                                             -1);
-			}
 		}
 	}
 	

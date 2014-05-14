@@ -14,8 +14,12 @@ public class RunButtonScript : MonoBehaviour {
 	
 	void OnMouseDown()
 	{
-		gameController.planningStage = false; 
-		gameController.canMoveArrows = false;
-		gameController.startCount = true;
+		if (gameController.planningStage) {
+			gameController.planningStage = false; 
+			gameController.canMoveArrows = false;
+			gameController.startCount = true;
+		} else {
+			Application.LoadLevel(Application.loadedLevel);
+		}
 	}
 }
