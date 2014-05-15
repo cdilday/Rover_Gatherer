@@ -6,6 +6,25 @@ public class StartButton : MonoBehaviour {
 	private Color mouseOverColor = Color.yellow;
 	private Color originalColor ;
 		
+	void Awake(){
+		PlayerPrefs.SetInt("Score Level" + 1, 0);
+		PlayerPrefs.SetInt("Star Count Level" + 1, 0);
+
+		PlayerPrefs.SetInt("Score Level" + 2, 0);
+		PlayerPrefs.SetInt("Star Count Level" + 2, 0);
+
+		PlayerPrefs.SetInt("Score Level" + 3, 0);
+		PlayerPrefs.SetInt("Star Count Level" + 3, 0);
+
+
+		PlayerPrefs.SetInt("Score Level" + 4, 0);
+		PlayerPrefs.SetInt("Star Count Level" + 4, 0);
+
+
+		PlayerPrefs.SetInt("Score Level" + 5, 0);
+		PlayerPrefs.SetInt("Star Count Level" + 5, 0);
+		}
+
 	void Update()
 	{
 		if (Input.GetKey (KeyCode.Space) || Input.GetKey (KeyCode.Return) || Input.GetKey (KeyCode.KeypadEnter)) {

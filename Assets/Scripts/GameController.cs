@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour {
 	public int timeToGet1Stars = 0;
 	public bool startCount = false;
 	public Transform scorePanelPrefab;
+	public Transform gameOverPanelPrefab;
 	public buildingScript building;
 
 
@@ -73,7 +74,12 @@ public class GameController : MonoBehaviour {
 	//this is where the gameover will happen. Anything that causes a game over should call this
 	public void gameOver()
 	{
-		gameObject.AddComponent<gameOverScript>();
+		var gameOverPanelTransform = Instantiate(gameOverPanelPrefab) as Transform;
+		
+		// Assign position
+		gameOverPanelTransform.position = transform.position;
+
+		//gameObject.AddComponent<gameOverScript>();
 		isGameOver = true;
 		if (roverExploded && playSound)
 			audio.PlayOneShot (roverExplosion);
