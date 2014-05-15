@@ -34,37 +34,34 @@ public class arrowFlip : MonoBehaviour {
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
 		if (rob != null && !gameController.planningStage && !arrowCooldown)
 		{
-			//StartCoroutine(snapToArrow(rob));
-			//this.transform.rotation.SetFromToRotation( = new Vector3(0,0,zAxis+180);
-			rob.directionType = type;
-			rob.transform.position = new Vector3(transform.position.x,
-			                                     transform.position.y,
-			                                   rob.transform.position.z);
-			//Destroy (gameObject);
-			if(type == 1 || type == 2)
-				this.transform.Rotate (Vector3.right,180);
-			if(type == 3 || type == 4)
-				this.transform.Rotate (Vector3.up,180);
-			//new Quaternion(
-			if(type == 1 || type == 3)
-				type++;
-			else if(type ==2 || type == 4)
-				type--;
-
-			//Destroy(gameObject);
+			arrowCooldown = true;
+			StartCoroutine(snapToArrow(rob));
 		}
 	}
 	
 	//Keeps rover on the grid while still snapping smoothly
 	IEnumerator snapToArrow(RobotScript rob)
 	{
-		//arrowCooldown = true;
-		yield return new WaitForSeconds (0.83f);
+		if(gameController.fastMode == true)
+			yield return new WaitForSeconds (0.01f);
+		else
+			yield return new WaitForSeconds (0.83f);
 		rob.directionType = type;
+		if(type == 1)
+			rob.mov.direction = new Vector2(0, 1);
+		else if(type == 2)
+			rob.mov.direction = new Vector2(0, -1);
+		else if(type == 3)
+			rob.mov.direction = new Vector2(-1, 0);
+		else if(type == 4)
+			rob.mov.direction = new Vector2(1, 0);
 		rob.transform.position = new Vector3(transform.position.x,
 		                                     transform.position.y,
 		                                     rob.transform.position.z);
-		//Destroy (gameObject);
+		if(gameController.fastMode == true)
+			yield return new WaitForSeconds (0.01f);
+		else
+			yield return new WaitForSeconds (0.83f);
 		if(type == 1 || type == 2)
 			this.transform.Rotate (Vector3.right,180);
 		if(type == 3 || type == 4)
@@ -74,8 +71,7 @@ public class arrowFlip : MonoBehaviour {
 			type++;
 		else if(type ==2 || type == 4)
 			type--;
-		yield return new WaitForSeconds (0.83f);
-		//arrowCooldown = false;
+		arrowCooldown = false;
 
 	}
 

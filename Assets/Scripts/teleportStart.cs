@@ -57,7 +57,7 @@ public class teleportStart : MonoBehaviour {
 		}
 		rob.transform.renderer.material.color = new Color ( 1,1,1);
 
-		move.speed = new Vector2 (0.9f, 0.9f);
+		move.speed = new Vector2 (1, 1);
 		yield return new WaitForSeconds (1);
 		isTransporting = false;
 		telEnd.isTransporting = false;
