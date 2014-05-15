@@ -21,6 +21,15 @@ public class PushableScript : MonoBehaviour {
 			SpecialEffectsHelper.Instance.Explosion (transform.position);
 			Destroy (shot.gameObject);
 		}
+
+		stoneScript stone = otherCollider.gameObject.GetComponent<stoneScript> ();
+		mineralScript mine = otherCollider.gameObject.GetComponent<mineralScript> ();
+		if (stone != null) {
+			this.rigidbody2D.isKinematic = true;
+				}
+		if (mine != null) {
+			this.rigidbody2D.isKinematic = true;
+				}
 		
 	}
 }

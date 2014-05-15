@@ -23,11 +23,8 @@ public class getNumberOfStar : MonoBehaviour {
 		numberOfStar = PlayerPrefs.GetInt("Star Count Level" + levelCounter);
 
 
-		// still need to fix the logic
-		// right now if player replay the level and have higher number of stars
-		// that number will not be over write the old one
-		// too lazy to keep track of oldStar and newStar
-		// hahaha...
+
+
 		if (isInit == false)
 		{
 			if (numberOfStar == 3) {

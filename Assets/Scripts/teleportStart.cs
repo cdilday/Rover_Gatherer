@@ -7,13 +7,22 @@ public class teleportStart : MonoBehaviour {
 	private teleportEnd telEnd;
 	public bool isTransporting = false;
 	public Sprite[] transportAnimation;
+
+	private GameController gameController;
+	private bool isFast = false;
 	// Use this for initialization
 	void Start () {
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController>();
+		}
+
 		telEnd = GameObject.Find ("Teleporter End").GetComponent<teleportEnd> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		isFast = gameController.fastMode;
 	}
 
 
@@ -21,11 +30,20 @@ public class teleportStart : MonoBehaviour {
 	{
 		// Is this a robot?
 		RobotScript rob = otherCollider.gameObject.GetComponent<RobotScript>();
-		if (rob != null && !isTransporting)
+		if (rob != null && !isTransporting && !isFast)
 		{
 			isTransporting = true;
 			telEnd.isTransporting = true;
 			StartCoroutine(transportation(rob));
+		}
+		else if (rob != null && !isTransporting && isFast)
+		{
+			isTransporting = true;
+			telEnd.isTransporting = true;
+			//StartCoroutine(transportation(rob));
+			rob.transform.position = new Vector3(telEnd.transform.position.x,
+			                                    telEnd.transform.position.y,
+			                                    rob.transform.position.z);
 		}
 	}
 

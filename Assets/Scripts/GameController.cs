@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour {
 
 		if (startCount == true && timeCounter > 0 && !isGameOver) {
 			if (fastMode)
-				timeCounter -= 4;
+				timeCounter -= 6;
 			else
 				timeCounter--;
 		}
