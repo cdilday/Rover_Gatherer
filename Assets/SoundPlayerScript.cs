@@ -7,6 +7,7 @@ public class SoundPlayerScript : MonoBehaviour {
 	public AudioSource menuMusic;
 	public bool playMusic; //this is for just the background music. 
 	public bool newLevel = false;
+	bool isntAlone = false;
 	// Use this for initialization
 
 	void Awake() {
@@ -15,9 +16,10 @@ public class SoundPlayerScript : MonoBehaviour {
 	void Start () {
 		if (GameObject.FindGameObjectsWithTag ("Sound Player").Length >= 2) {
 			Destroy (this.gameObject);
+			isntAlone = true;
 		}
-		if (playMusic) {
-			if(Application.loadedLevel == 0 || Application.loadedLevel == 1)
+		if (playMusic && !isntAlone) {
+			if((Application.loadedLevel == 0 || Application.loadedLevel == 1) && Application.loadedLevelName != "Template Level")
 			{
 				menuMusic.Play();
 			}
