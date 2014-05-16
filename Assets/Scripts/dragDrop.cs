@@ -4,6 +4,8 @@ using UnityEngine;
 class dragDrop : MonoBehaviour {
 	public AudioClip dropSound;
 
+	public arrowCounter counter;
+
 	private Color mouseOverColor = Color.blue;
 	private Color originalColor ;
 	
@@ -15,6 +17,10 @@ class dragDrop : MonoBehaviour {
 	
 	void Start()
 	{
+		GameObject arrowCounterTemp = GameObject.Find ("ArrowCounter");
+		if (arrowCounterTemp != null) {
+			counter = arrowCounterTemp.GetComponent <arrowCounter>();
+		}
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			gameController = gameControllerObject.GetComponent <GameController>();
@@ -40,6 +46,45 @@ class dragDrop : MonoBehaviour {
 	void OnMouseDown()
 	{
 		if (gameController.canMoveArrows) {
+			//counter updating
+			if(transform.GetComponent<arrowScript>().originalPos == transform.position)
+			{
+				//normal arrows
+				if(gameObject.transform.parent.GetComponent <ChangeDirection> ()){
+					switch(gameObject.transform.parent.GetComponent <ChangeDirection> ().type)
+					{
+						case 1:
+							counter.UpCount--;
+							break;
+						case 2:
+							counter.DownCount--;
+							break;
+						case 3:
+							counter.LeftCount--;
+							break;
+						case 4:
+							counter.RightCount--;
+							break;
+					}
+				}
+				else { //flip arrows
+					switch(gameObject.transform.parent.GetComponent <arrowFlip> ().type)
+					{
+						case 1:
+							counter.UpFlipCount--;
+							break;
+						case 2:
+							counter.DownFlipCount--;
+							break;
+						case 3:
+							counter.LeftFlipCount--;
+							break;
+						case 4:
+							counter.RightFlipCount--;
+							break;
+					}
+				}
+			}
 			distance = Vector3.Distance (transform.position, Camera.main.transform.position);
 			dragging = true;
 		}
@@ -100,18 +145,22 @@ class dragDrop : MonoBehaviour {
 					case 1: 
 						tempx = 1;
 						tempy = 5.68f;
+						counter.UpCount++;
 						break;
 					case 2:
 						tempx = 1;
 						tempy = 5;
+						counter.DownCount++;
 						break;
 					case 3:
 						tempx = 2;
 						tempy = 5.3f;
+						counter.LeftCount++;
 						break;
 					case 4:	
 						tempx = 3;
 						tempy = 5.3f;
+						counter.RightCount++;
 						break;
 					}
 				}
@@ -124,18 +173,22 @@ class dragDrop : MonoBehaviour {
 					case 1: 
 						tempx = 4;
 						tempy = 5.68f;
+						counter.UpFlipCount++;
 						break;
 					case 2:
 						tempx = 4;
 						tempy = 5;
+						counter.DownFlipCount++;
 						break;
 					case 3:
 						tempx = 5;
 						tempy = 5.3f;
+						counter.LeftFlipCount++;
 						break;
 					case 4:	
 						tempx = 6;
 						tempy = 5.3f;
+						counter.RightFlipCount++;
 						break;
 					}
 				}

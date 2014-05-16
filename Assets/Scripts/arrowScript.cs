@@ -5,7 +5,7 @@ public class arrowScript : MonoBehaviour {
 
 	public bool dragging = false;
 	private dragDrop drag;
-	private Vector3 originalPos;
+	public Vector3 originalPos;
 	// Use this for initialization
 	void Start () {
 		drag = this.GetComponent <dragDrop> ();
