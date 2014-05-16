@@ -19,7 +19,9 @@ public class SuccessScript : MonoBehaviour
 		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;
 		
 		// Assign position
-		scorePanelTransform.position = transform.position;
+		scorePanelTransform.position = new Vector3 (transform.position.x,
+		                                           transform.position.y, 
+		                                           -10);
 	}
 	/*void OnGUI()
 	{

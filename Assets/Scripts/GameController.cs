@@ -77,7 +77,9 @@ public class GameController : MonoBehaviour {
 		var gameOverPanelTransform = Instantiate(gameOverPanelPrefab) as Transform;
 		
 		// Assign position
-		gameOverPanelTransform.position = transform.position;
+		gameOverPanelTransform.position = new Vector3 (transform.position.x,
+		                                            transform.position.y, 
+		                                            -10);
 
 		//gameObject.AddComponent<gameOverScript>();
 		isGameOver = true;
@@ -89,9 +91,11 @@ public class GameController : MonoBehaviour {
 		timeCounter += arrowsOut * 300;
 		// Create a new panel
 		var scorePanelTransform = Instantiate(scorePanelPrefab) as Transform;
-		
+
 		// Assign position
-		scorePanelTransform.position = transform.position;
+		scorePanelTransform.position = new Vector3 (transform.position.x,
+		                                            transform.position.y, 
+		                                            -10);
 		isGameOver = true;
 	}
 }

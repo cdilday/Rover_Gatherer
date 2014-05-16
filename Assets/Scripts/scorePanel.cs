@@ -41,8 +41,19 @@ public class scorePanel : MonoBehaviour {
 		int tempScore = PlayerPrefs.GetInt("Score Level" + gameController.level, 0);
 		if (tempScore < scoreCounter) {
 			PlayerPrefs.SetInt("Score Level" + gameController.level, scoreCounter);
-			PlayerPrefs.SetInt("Star Count Level" + gameController.level, starsEarned);
-		};
+			if(PlayerPrefs.GetInt("Star Count Level" + gameController.level, 0) < starsEarned)
+			{
+				PlayerPrefs.SetInt("Star Count Level" + gameController.level, starsEarned);
+				if(GameObject.Find ("Kongregate API") != null)
+				{
+					KongregateAPI Kong = GameObject.FindGameObjectWithTag("KongregateAPI").GetComponent<KongregateAPI>();
+					if(Kong.Connected)
+					{
+						Kong.Submit("Star Count Level" + gameController.level, starsEarned);
+					}
+				}
+			}
+		}
 	}
 	
 	// Update is called once per frame
