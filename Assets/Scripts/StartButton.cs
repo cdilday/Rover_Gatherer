@@ -3,27 +3,13 @@ using System.Collections;
 
 public class StartButton : MonoBehaviour {
 	public string levelName;
-	private Color mouseOverColor = Color.yellow;
+	private Color mouseOverColor = Color.white;
 	private Color originalColor ;
 		
-	void Awake(){
-		PlayerPrefs.SetInt("Score Level" + 1, 0);
-		PlayerPrefs.SetInt("Star Count Level" + 1, 0);
-
-		PlayerPrefs.SetInt("Score Level" + 2, 0);
-		PlayerPrefs.SetInt("Star Count Level" + 2, 0);
-
-		PlayerPrefs.SetInt("Score Level" + 3, 0);
-		PlayerPrefs.SetInt("Star Count Level" + 3, 0);
-
-
-		PlayerPrefs.SetInt("Score Level" + 4, 0);
-		PlayerPrefs.SetInt("Star Count Level" + 4, 0);
-
-
-		PlayerPrefs.SetInt("Score Level" + 5, 0);
-		PlayerPrefs.SetInt("Star Count Level" + 5, 0);
-		}
+	void Start()
+	{
+		gameObject.renderer.material.color = Color.green;
+	}
 
 	void Update()
 	{
@@ -34,7 +20,7 @@ public class StartButton : MonoBehaviour {
 	}
 	void OnMouseEnter()
 	{
-		originalColor = gameObject.renderer.material.GetColor ("_Color");
+		originalColor = Color.green;
 		gameObject.renderer.material.color = mouseOverColor;
 		
 	}

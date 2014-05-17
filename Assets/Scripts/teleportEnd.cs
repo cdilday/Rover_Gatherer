@@ -62,7 +62,7 @@ public class teleportEnd : MonoBehaviour {
 			yield return new WaitForSeconds(0.25f);
 			gameObject.GetComponent<SpriteRenderer>().sprite = transportAnimation [i];
 			telStart.gameObject.GetComponent<SpriteRenderer>().sprite = transportAnimation [i];
-			rob.transform.renderer.material.color = new Color ( 1,1,1, 1 - (0.25f * i));
+			rob.transform.renderer.material.color = new Color ( 1, 1, 1, 1 - (0.25f * i));
 			
 		}
 		rob.transform.position = new Vector3(telStart.transform.position.x,
@@ -73,7 +73,7 @@ public class teleportEnd : MonoBehaviour {
 			yield return new WaitForSeconds(0.25f);
 			gameObject.GetComponent<SpriteRenderer>().sprite = transportAnimation [i];
 			telStart.gameObject.GetComponent<SpriteRenderer>().sprite = transportAnimation [i];
-			rob.transform.renderer.material.color = new Color ( 1,1,1,(0.25f * i));
+			rob.transform.renderer.material.color = new Color ( 1, 1, 1,(0.25f * (i-5f)));
 		}
 		rob.transform.renderer.material.color = new Color ( 1,1,1);
 		move.speed = new Vector2 (1, 1);
