@@ -1,6 +1,15 @@
 fileFormatVersion: 2
 guid: 1a585e824011ed74e8423b3121c0917b
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: BK11q_0
+    21300002: BK11q_1
+    21300004: BK11q_2
+    21300006: BK11q_3
+    21300008: BK11q_4
+    21300010: BK11q_5
+    21300012: BK11q_6
+    21300014: BK11q_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +44,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +64,7 @@ TextureImporter:
         height: 37
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_1
       rect:
         serializedVersion: 2
@@ -63,6 +74,7 @@ TextureImporter:
         height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_2
       rect:
         serializedVersion: 2
@@ -72,6 +84,7 @@ TextureImporter:
         height: 38
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_3
       rect:
         serializedVersion: 2
@@ -81,6 +94,7 @@ TextureImporter:
         height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_4
       rect:
         serializedVersion: 2
@@ -90,6 +104,7 @@ TextureImporter:
         height: 31
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_5
       rect:
         serializedVersion: 2
@@ -99,6 +114,7 @@ TextureImporter:
         height: 36
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_6
       rect:
         serializedVersion: 2
@@ -108,6 +124,7 @@ TextureImporter:
         height: 35
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: BK11q_7
       rect:
         serializedVersion: 2
@@ -117,5 +134,6 @@ TextureImporter:
         height: 37
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
